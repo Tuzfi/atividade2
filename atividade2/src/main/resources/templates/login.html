@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>LOGIN</h1>
+        <div class="login-form">
+        <form th:action="@{/login}" method="post" class="login-form">
+        <div class="input-group">
+
+            <label for="user">User</label>
+            <input type="text" id="user" placeholder="Nome de usuário" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+
+        </div>
+        
+        <div class="login-button-container">
+            <button type="submit">Logar</button>
+        </div>
+        <div class="register-redirect">
+            Não tem conta? <a href="/register">Registre aqui</a>
+        </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
