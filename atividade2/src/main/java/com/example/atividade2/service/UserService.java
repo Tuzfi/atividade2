@@ -1,4 +1,5 @@
 package com.example.atividade2.service;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,8 +12,10 @@ public class UserService {
     private final InMemoryUserDetailsManager userDetailsManager;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(InMemoryUserDetailsManager userDetailsManager,
-                       PasswordEncoder passwordEncoder) {
+    public UserService(
+            InMemoryUserDetailsManager userDetailsManager,
+            PasswordEncoder passwordEncoder) {
+
         this.userDetailsManager = userDetailsManager;
         this.passwordEncoder = passwordEncoder;
     }

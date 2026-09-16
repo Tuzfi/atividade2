@@ -17,10 +17,16 @@ public class SecureLoginController {
 
     private final UserConfig userConfig;
     private final SendEmailService sendEmailService;
+    private final UserService userService;
 
-    public SecureLoginController(UserConfig userConfig, SendEmailService SendEmailService) {
+    public SecureLoginController(
+            UserConfig userConfig,
+            SendEmailService sendEmailService,
+            UserService userService) {
+
         this.userConfig = userConfig;
-        this.sendEmailService = SendEmailService;
+        this.sendEmailService = sendEmailService;
+        this.userService = userService;
     }
 
     @GetMapping("/login")
@@ -52,28 +58,25 @@ public class SecureLoginController {
     public String handleRegister(
             @RequestParam("username") String username,
             @RequestParam("email") String email,
+            @RequestParam("eventDate")
             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate eventDate,
             @RequestParam("password") String password) {
 
-        // Aqui você pode adicionar lógica para salvar os dados do usuário, por exemplo:
-        // userService.saveUser(new User(nome, email, cpf, rg, endereco, instituicao,
-        // senha));
+        // Verifica se o usuário já existe
         if (userService.exists(email)) {
             System.out.println("Usuário já cadastrado: " + email);
             return "redirect:/register";
         }
 
+        // Cria o usuário
         userService.createUser(email, password);
 
         System.out.println("Usuário cadastrado: " + email);
+        System.out.println("Nome: " + username);
+        System.out.println("Data do evento: " + eventDate);
 
+        // Redireciona para o login
         return "redirect:/login?cadastro=sucesso";
-    }
-
-    System.out.println("Registro: Redirecionado para a página de login.");return"redirect:/login"; // Após o registro,
-                                                                                                   // redirecionar para
-                                                                                                   // a página de login
-
     }
 
     @GetMapping("/recoverpassword")
@@ -85,10 +88,16 @@ public class SecureLoginController {
     public String handleRecoverPassword(
             @RequestParam("email") String email) {
 
-        sendEmailService.sendEmail(email, "Recuperação de Senha",
-                "Aqui está o link para recuperar sua senha: [link de recuperação]");
+        sendEmailService.sendEmail(
+                email,
+                "Recuperação de Senha",
+                "Aqui está o link para recuperar sua senha: [link de recuperação]"
+        );
 
-        System.out.println("Recuperação de E-mail: Redirecionado para a página de login.");
+        System.out.println(
+                "Recuperação de E-mail: Redirecionado para a página de login."
+        );
+
         return "redirect:/login";
     }
 }
