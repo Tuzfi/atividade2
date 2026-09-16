@@ -8,11 +8,9 @@
 </head>
 
 <body>
-    <div class="backgroud"><img src="images\synthwave.gif" alt=""></div>
     <div class="register">
-        
-        <h1>REGISTRO</h1>
         <div class="register-container">
+        <h1>REGISTRO</h1>
         <form th:action="@{/register}" method="post" class="register-form">
         <div class="input-group">
 
@@ -23,14 +21,13 @@
             <input type="email" id="email" required>
 
             <label for="password">Senha</label>
-            <input type="password" id="password" placeholder="••••••••"required>
-
-            <label for="password">Confirme sua senha</label>
             <input type="password" id="password" placeholder="••••••••" required>
+
+            <label for="confirmPassword">Confirme sua senha</label>
+            <input type="password" id="confirmPassword" placeholder="••••••••" required>
 
             <label for="date">Data de Nascimento</label>
             <input type="date" id="date" placeholder="Data de Nascimento" required>
-            
 
         </div>
         
@@ -42,8 +39,8 @@
             Já tem conta? <a href="/login">Faça login aqui</a>
         </div>
 
+        </form>
         </div>
     </div>
-    
 </body>
 </html>

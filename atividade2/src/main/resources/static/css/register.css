@@ -12,16 +12,26 @@
   font-family: 'Courier New', monospace;
 }
 
-body {
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
-  background-color: var(--secondary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  background-image: url('images/synthwave.gif');
+body {
+  background-image: url('/images/synthwave.gif');
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .register-container {
@@ -29,7 +39,7 @@ body {
   max-width: 400px;
   border: 1px solid var(--primary);
   padding: 40px 30px;
-  background-color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.92);
   box-shadow: var(--shadow);
   position: relative;
   border-radius: 12px;
@@ -81,6 +91,11 @@ input:focus {
   box-shadow: 4px 4px 0px var(--primary);
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--secondary) inset;
+  -webkit-text-fill-color: var(--primary);
+}
+
 button {
   width: 100%;
   padding: 12px;
@@ -99,50 +114,13 @@ button:hover {
   transform: translate(-2px, -2px);
 }
 
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 25px 0;
-  color: var(--primary);
-  font-weight: bold;
-}
-
-.divider::before, .divider::after {
-  content: "";
-  flex: 1;
-  border-bottom: 2px solid var(--primary);
-  margin: 0 10px;
-}
-
-.social-register {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.social-btn {
-  width: 50px;
-  height: 50px;
-  border: 2px solid var(--primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.social-btn:hover {
-  box-shadow: 4px 4px 0px var(--primary);
-  transform: translate(-2px, -2px);
-}
-
-.footer {
+.login-redirect {
   text-align: center;
   margin-top: 20px;
   color: var(--primary);
 }
 
-.footer a {
+.login-redirect a {
   color: var(--primary);
   font-weight: bold;
   text-decoration: underline;

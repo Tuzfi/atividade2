@@ -8,9 +8,9 @@
 </head>
 
 <body>
-    <div class="login-container">
+    <div class="login">
+        <div class="login-container">
         <h1>LOGIN</h1>
-        <div class="login-form">
         <form th:action="@{/login}" method="post" class="login-form">
         <div class="input-group">
 
@@ -25,12 +25,13 @@
         <div class="login-button-container">
             <button type="submit">Logar</button>
         </div>
+
         <div class="register-redirect">
             Não tem conta? <a href="/register">Registre aqui</a>
         </div>
 
+        </form>
         </div>
     </div>
-    
 </body>
 </html>
