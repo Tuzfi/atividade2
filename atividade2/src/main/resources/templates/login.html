@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +11,31 @@
 <body>
     <div class="login">
         <div class="login-container">
-        <h1>LOGIN</h1>
-        <form th:action="@{/login}" method="post" class="login-form">
-        <div class="input-group">
+            <h1>LOGIN</h1>
+            <form th:action="@{/login}" method="post" class="login-form">
+                <div class="input-group">
 
-            <label for="username">User</label>
-            <input type="text" id="username" name="username" placeholder="Username" required>
+                    <label for="username">User</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
 
-            <label for="password">Senha</label>
-            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <div class="register-redirect">
+                        Esqueceu a senha? <a href="/recoverpassword">Recuperar senha</a>
+                    </div>
+                </div>
 
-        </div>
-        
-        <div class="login-button-container">
-            <button type="submit">Logar</button>
-        </div>
+                <div class="login-button-container">
+                    <button type="submit">Logar</button>
+                </div>
 
-        <div class="register-redirect">
-            Não tem conta? <a href="/register">Registre aqui</a>
-        </div>
+                <div class="register-redirect">
+                    Não tem conta? <a href="/register">Registre aqui</a>
+                </div>
 
-        </form>
+            </form>
         </div>
     </div>
 </body>
+
 </html>
