@@ -15,6 +15,7 @@ import com.example.atividade2.service.UserService;
 @Controller
 public class SecureLoginController {
 
+    @SuppressWarnings("unused")
     private final UserConfig userConfig;
     private final SendEmailService sendEmailService;
     private final UserService userService;
