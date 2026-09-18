@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/home.css">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 
 <body>
-    <div class="home">
-        <div class="home-container">
-            <h1>BEM-VINDO</h1>
-            <p class="welcome-text">Você está logado como <strong th:text="${username}">usuário</strong></p>
+    <div class="admin">
+        <div class="admin-container">
+            <span class="admin-badge">ÁREA RESTRITA</span>
+            <h1>PAINEL ADMIN</h1>
+            <p class="welcome-text">Logado como <strong th:text="${username}">admin</strong></p>
 
-            <div class="home-actions">
-                <a th:if="${isAdmin}" href="/admin" class="btn btn-secondary">Área administrativa</a>
+            <div class="admin-actions">
+                <a href="/home" class="btn btn-secondary">Voltar para Home</a>
 
                 <form th:action="@{/logout}" method="post">
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">

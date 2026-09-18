@@ -1,0 +1,65 @@
+:root {
+  --primary: #000000;
+  --secondary: #FFFFFF;
+  --accent: #FF5E5B;
+  --shadow: 8px 8px 0px var(--primary);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', monospace;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url('/images/synthwave.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-container {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid var(--primary);
+  padding: 40px 30px;
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-size: 28px;
+}
+
+p {
+  margin-bottom: 24px;
+  color: var(--primary);
+}
+
+a {
+  display: inline-block;
+  padding: 12px;
+  width: 100%;
+  background-color: var(--accent);
+  color: var(--secondary);
+  border: 2px solid var(--primary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  box-shadow: 4px 4px 0px var(--primary);
+}

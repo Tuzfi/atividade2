@@ -3,7 +3,9 @@ package com.example.atividade2.controller;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +38,11 @@ public class SecureLoginController {
     }
 
     @GetMapping("/home")
-    public String home() {
+    public String home(Authentication authentication, Model model) {
+        model.addAttribute("username", authentication.getName());
+        boolean isAdmin = authentication.getAuthorities().stream()
+                .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"));
+        model.addAttribute("isAdmin", isAdmin);
         return "home";
     }
 
@@ -46,7 +52,8 @@ public class SecureLoginController {
     }
 
     @GetMapping("/admin")
-    public String admin() {
+    public String admin(Authentication authentication, Model model) {
+        model.addAttribute("username", authentication.getName());
         return "admin";
     }
 
